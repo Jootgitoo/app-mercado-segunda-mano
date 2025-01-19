@@ -18,14 +18,17 @@ class FragmentPopular : Fragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
 
-        //Configuramos el RecyclerView
-        binding.rvPopular.requestFocus()
-
-        initRecyclerView()
 
         //Creamos la vista en el fragment
         binding = FragmentPopularBinding.inflate(inflater, container, false)
         val view = binding.root
+
+        //Configuramos el RecyclerView
+        binding.rvPopular?.requestFocus()
+
+        initRecyclerView()
+
+
 
         return view
 
@@ -34,17 +37,17 @@ class FragmentPopular : Fragment() {
     private fun initRecyclerView(){
 
         val manager = LinearLayoutManager(requireActivity())
-        binding.rvPopular.layoutManager = manager
+        binding.rvPopular?.layoutManager = manager
 
         //Obtengo los datos de la bbdd
         val productosHelper = ProductoConexionHelper
         val productosBBDD = productosHelper.obtenerProductos(requireActivity())
 
         //Configuro el recyclerView con los datos de la bbdd
-        binding.rvPopular.adapter = AdaptadorProductos(productosBBDD)
+        binding.rvPopular?.adapter = AdaptadorProductos(productosBBDD)
 
         val decoration = DividerItemDecoration(requireActivity(), manager.orientation)
-        binding.rvPopular.addItemDecoration(decoration)
+        binding.rvPopular?.addItemDecoration(decoration)
     }
 
 }

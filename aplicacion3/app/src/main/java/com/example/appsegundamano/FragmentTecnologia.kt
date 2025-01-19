@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.LinearLayout
 import androidx.recyclerview.widget.DividerItemDecoration
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.appsegundamano.databinding.FragmentTecnologiaBinding
 
 
@@ -18,7 +19,7 @@ class FragmentTecnologia : Fragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
 
         //Configuramos el RecyclerView
-        binding.rvTecnologia.requestFocus()
+        binding.rvTecnologia?.requestFocus()
 
         initRecyclerView()
 
@@ -30,18 +31,18 @@ class FragmentTecnologia : Fragment() {
 
     private fun  initRecyclerView(){
 
-        val manager = LinearLayout(requireActivity())
-        binding.rvTecnologia.layoutManager = manager
+        val manager = LinearLayoutManager( requireActivity() )
+        binding.rvTecnologia?.layoutManager = manager
 
         //Obtengo los datos de la bbdd
         val productosHelper = ProductoConexionHelper
         val productosBBDD = productosHelper.obtenerProductosPorCategoria(requireActivity(), "Tecnologia")
 
         //Configuro el ReciclerView con los datos de la bbdd
-        binding.rvTecnologia.adapter = AdaptadorProductos(productosBBDD)
+        binding.rvTecnologia?.adapter = AdaptadorProductos(productosBBDD)
 
         val decoration = DividerItemDecoration(requireActivity(), manager.orientation)
-        binding.rvTecnologia.addItemDecoration(decoration)
+        binding.rvTecnologia?.addItemDecoration(decoration)
     }
 
 

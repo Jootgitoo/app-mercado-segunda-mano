@@ -16,14 +16,16 @@ class FragmentDeportes : Fragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
 
+        binding = FragmentDeportesBinding.inflate(inflater, container, false)
+        val view = binding.root
+
         //Configuramos el Recycler view
         binding.rvDeportes.requestFocus()
 
         initRecyclerView()
 
         //Creamos la vista en el fragment
-        binding = FragmentDeportesBinding.inflate(inflater, container, false)
-        val view = binding.root
+
 
         //val productoHelper = ProductoConexionHelper
         //val productosBBDD = productoHelper.obtenerProductosPorCategoria(requireActivity(), "Deporte")

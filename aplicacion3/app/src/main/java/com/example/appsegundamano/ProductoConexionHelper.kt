@@ -139,7 +139,7 @@ object ProductoConexionHelper {
         val bd: SQLiteDatabase = admin.readableDatabase
 
         //Devuelve un resultSet
-        val fila = bd.rawQuery("SELECT id,nombre,precio,urlImagen FROM productos", null)
+        val fila = bd.rawQuery("SELECT id,nombre,precio,categoria,urlImagen FROM productos", null)
 
         while (fila.moveToNext()) { //Si fila (ResultSet) tiene mas contenido del leido
             //Creo un producto
