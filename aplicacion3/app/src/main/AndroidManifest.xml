@@ -13,22 +13,22 @@
         android:theme="@style/newAppTheme"
         tools:targetApi="31">
         <activity
-            android:name=".ItemProducto"
+            android:name=".view.ItemProducto"
             android:exported="false" />
         <activity
-            android:name=".ItemUsuario"
+            android:name=".view.ItemUsuario"
             android:exported="false" />
         <activity
-            android:name=".PantallaPrincipal"
+            android:name=".view.PantallaPrincipal"
             android:exported="false" />
         <activity
-            android:name=".Preferencias"
+            android:name=".viewModel.Preferencias"
             android:exported="false" />
         <activity
-            android:name=".AcercaDe2"
+            android:name=".view.AcercaDe2"
             android:exported="false" />
         <activity
-            android:name=".Login"
+            android:name=".view.Login"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

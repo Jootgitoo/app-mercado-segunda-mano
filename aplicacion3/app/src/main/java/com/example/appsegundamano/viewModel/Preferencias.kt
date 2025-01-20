@@ -1,4 +1,4 @@
-package com.example.appsegundamano
+package com.example.appsegundamano.viewModel
 
 import android.content.Intent
 import android.os.Bundle
@@ -6,7 +6,9 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.example.appsegundamano.R
 import com.example.appsegundamano.databinding.ActivityPreferenciasBinding
+import com.example.appsegundamano.view.PantallaPrincipal
 
 class Preferencias : AppCompatActivity() {
 

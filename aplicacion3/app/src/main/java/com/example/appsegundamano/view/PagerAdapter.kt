@@ -1,4 +1,4 @@
-package com.example.appsegundamano
+package com.example.appsegundamano.view
 
 import android.content.res.Resources
 import androidx.fragment.app.Fragment

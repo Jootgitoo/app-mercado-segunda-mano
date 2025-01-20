@@ -1,8 +1,11 @@
-package com.example.appsegundamano
+package com.example.appsegundamano.viewModel
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.example.appsegundamano.R
+import com.example.appsegundamano.model.Producto
+import com.example.appsegundamano.view.ProductosViewHolder
 
 class AdaptadorProductos(private val producto: MutableList<Producto>): RecyclerView.Adapter<ProductosViewHolder>() {
 
@@ -17,7 +20,12 @@ class AdaptadorProductos(private val producto: MutableList<Producto>): RecyclerV
 
         //Inicializamos la lista de los cantantes
         val producto = producto[position]
+
+        //Configuramos el nombre para que aparezca en el ReciclerView
         holder.txtView.text = producto.nombre
+
+        //Configuramos el precio para que aparezca en el ReciclerView
+        holder.txtView2.text = producto.precio.toString()
 
         val imageResourceId = holder.itemView.context.resources.getIdentifier(
             producto.urlImagen, "drawable", holder.itemView.context.packageName

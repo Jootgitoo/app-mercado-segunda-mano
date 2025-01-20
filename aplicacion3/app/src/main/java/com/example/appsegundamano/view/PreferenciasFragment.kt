@@ -1,4 +1,4 @@
-package com.example.appsegundamano
+package com.example.appsegundamano.view
 
 import android.content.SharedPreferences
 import android.os.Bundle
@@ -6,8 +6,8 @@ import android.view.ContextThemeWrapper
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatDelegate
-import androidx.core.app.ActivityCompat.recreate
 import androidx.preference.PreferenceFragmentCompat
+import com.example.appsegundamano.R
 
 class PreferenciasFragment : PreferenceFragmentCompat(), SharedPreferences.OnSharedPreferenceChangeListener {
 

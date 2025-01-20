@@ -1,4 +1,4 @@
-package com.example.appsegundamano
+package com.example.appsegundamano.view
 
 
 import android.annotation.SuppressLint
@@ -11,6 +11,8 @@ import android.view.MenuItem
 import android.widget.ArrayAdapter
 import androidx.appcompat.app.AppCompatActivity
 import androidx.viewpager2.widget.ViewPager2
+import com.example.appsegundamano.viewModel.Preferencias
+import com.example.appsegundamano.R
 import com.example.appsegundamano.databinding.ActivityPantallaPrincipalBinding
 import com.google.android.material.appbar.MaterialToolbar
 import com.google.android.material.tabs.TabLayout

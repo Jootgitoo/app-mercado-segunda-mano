@@ -1,15 +1,17 @@
-package com.example.appsegundamano
+package com.example.appsegundamano.view
 
 import android.content.Intent
 import android.os.Bundle
 import android.view.ContextThemeWrapper
-import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.appsegundamano.viewModel.AdaptadorUsuarios
+import com.example.appsegundamano.R
 import com.example.appsegundamano.databinding.ActivityLoginBinding
+import com.example.appsegundamano.model.UsuariosConexionHelper
 
 class Login : AppCompatActivity() {
 
@@ -53,7 +55,11 @@ class Login : AppCompatActivity() {
             .setTitle("Validacion")
             .setMessage("Contraseña validada")
             .setPositiveButton("OK") { dialog, which ->
-                if (binding.txtPassword.text.toString() == "Admin123") {
+
+                val usuariosHelper = UsuariosConexionHelper
+                val usuariosBBDD = usuariosHelper.buscarUsuario(this, )
+
+                if (binding.txtPassword.text.toString() == ) {
                     startActivity(Intent(this, PantallaPrincipal::class.java))
                 } else {
                     Toast.makeText(this, "Contraseña incorrecta", Toast.LENGTH_SHORT).show()

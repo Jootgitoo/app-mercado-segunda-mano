@@ -1,4 +1,4 @@
-package com.example.appsegundamano
+package com.example.appsegundamano.view
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -7,24 +7,23 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.appsegundamano.viewModel.AdaptadorProductos
 import com.example.appsegundamano.databinding.FragmentModaBinding
-import com.example.appsegundamano.databinding.FragmentPopularBinding
+import com.example.appsegundamano.model.ProductoConexionHelper
 
 
-class FragmentPopular : Fragment() {
+class FragmentModa : Fragment() {
 
-    //Creamos el binding
-    private lateinit var binding: FragmentPopularBinding
+    private lateinit var binding: FragmentModaBinding
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
 
-
         //Creamos la vista en el fragment
-        binding = FragmentPopularBinding.inflate(inflater, container, false)
+        binding = FragmentModaBinding.inflate(inflater, container, false)
         val view = binding.root
 
         //Configuramos el RecyclerView
-        binding.rvPopular?.requestFocus()
+        binding.rvModa.requestFocus()
 
         initRecyclerView()
 
@@ -33,19 +32,17 @@ class FragmentPopular : Fragment() {
     }
 
     private fun initRecyclerView(){
-
         val manager = LinearLayoutManager(requireActivity())
-        binding.rvPopular?.layoutManager = manager
+        binding.rvModa.layoutManager = manager
 
         //Obtengo los datos de la bbdd
         val productosHelper = ProductoConexionHelper
-        val productosBBDD = productosHelper.obtenerProductos(requireActivity())
+        val productosBBDD = productosHelper.obtenerProductosPorCategoria(requireActivity(), "Moda")
 
-        //Configuro el recyclerView con los datos de la bbdd
-        binding.rvPopular?.adapter = AdaptadorProductos(productosBBDD)
+        binding.rvModa.adapter = AdaptadorProductos(productosBBDD)
 
         val decoration = DividerItemDecoration(requireActivity(), manager.orientation)
-        binding.rvPopular?.addItemDecoration(decoration)
+        binding.rvModa.addItemDecoration(decoration)
     }
 
 }

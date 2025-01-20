@@ -1,4 +1,4 @@
-package com.example.appsegundamano
+package com.example.appsegundamano.view
 
 import android.view.View
 import android.widget.ImageView

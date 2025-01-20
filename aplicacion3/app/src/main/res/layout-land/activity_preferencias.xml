@@ -5,12 +5,12 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Preferencias">
+    tools:context=".viewModel.Preferencias">
 
 
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/SettingsFragment"
-        android:name="com.example.appsegundamano.PreferenciasFragment"
+        android:name="com.example.appsegundamano.view.PreferenciasFragment"
         android:layout_width="732dp"
         android:layout_height="301dp"
         android:layout_marginTop="2dp"

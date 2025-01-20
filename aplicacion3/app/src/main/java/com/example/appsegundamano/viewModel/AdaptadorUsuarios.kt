@@ -1,10 +1,13 @@
-package com.example.appsegundamano
+package com.example.appsegundamano.viewModel
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
+import com.example.appsegundamano.R
+import com.example.appsegundamano.model.Usuario
+import com.example.appsegundamano.view.UsuariosViewHolder
 
 class AdaptadorUsuarios(private val usuarios: MutableList<Usuario>) : RecyclerView.Adapter<UsuariosViewHolder>() {
 
@@ -41,11 +44,17 @@ class AdaptadorUsuarios(private val usuarios: MutableList<Usuario>) : RecyclerVi
         }
 
         //Si está seleccionado cambiamos el color de fondo
-        holder.itemView.setBackgroundColor(ContextCompat.getColor(holder.itemView.context, R.color.listaUsuarios))
+        holder.itemView.setBackgroundColor(ContextCompat.getColor(holder.itemView.context,
+            R.color.listaUsuarios
+        ))
         if(selectedItems.contains(position)){
-            holder.itemView.setBackgroundColor(ContextCompat.getColor(holder.itemView.context, R.color.item_seleccionado))
+            holder.itemView.setBackgroundColor(ContextCompat.getColor(holder.itemView.context,
+                R.color.item_seleccionado
+            ))
         } else {
-            holder.itemView.setBackgroundColor(ContextCompat.getColor(holder.itemView.context, R.color.listaUsuarios))
+            holder.itemView.setBackgroundColor(ContextCompat.getColor(holder.itemView.context,
+                R.color.listaUsuarios
+            ))
         }
 
     }

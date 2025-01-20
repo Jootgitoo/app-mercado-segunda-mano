@@ -1,14 +1,15 @@
-package com.example.appsegundamano
+package com.example.appsegundamano.view
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.LinearLayout
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.appsegundamano.viewModel.AdaptadorProductos
 import com.example.appsegundamano.databinding.FragmentTecnologiaBinding
+import com.example.appsegundamano.model.ProductoConexionHelper
 
 
 class FragmentTecnologia : Fragment() {
