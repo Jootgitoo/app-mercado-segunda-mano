@@ -18,16 +18,17 @@ class FragmentTecnologia : Fragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
 
+        binding = FragmentTecnologiaBinding.inflate(inflater, container, false)
+        val view = binding.root
+
         //Configuramos el RecyclerView
         binding.rvTecnologia?.requestFocus()
 
         initRecyclerView()
 
-        binding = FragmentTecnologiaBinding.inflate(inflater, container, false)
-        val view = binding.root
-
         return view
     }
+
 
     private fun  initRecyclerView(){
 

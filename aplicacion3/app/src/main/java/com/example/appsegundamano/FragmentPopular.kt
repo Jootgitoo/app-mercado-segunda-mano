@@ -28,8 +28,6 @@ class FragmentPopular : Fragment() {
 
         initRecyclerView()
 
-
-
         return view
 
     }

@@ -170,7 +170,7 @@ object ProductoConexionHelper {
         val bd: SQLiteDatabase = conexion.readableDatabase
 
         //Devielve un resultSet
-        val fila = bd.rawQuery("SELECT nombre,precio,urlImagen FROM productos WHERE categoria = ?", arrayOf(categoria))
+        val fila = bd.rawQuery("SELECT id,nombre,precio,categoria,urlImagen FROM productos WHERE categoria = ?", arrayOf(categoria))
 
         while (fila.moveToNext()) {
             var p:Producto = Producto ( fila.getInt(0), fila.getString(1), fila.getDouble(2), fila.getString(3), fila.getString(4) )
