@@ -56,10 +56,12 @@ class Login : AppCompatActivity() {
             .setMessage("Contraseña validada")
             .setPositiveButton("OK") { dialog, which ->
 
-                val usuariosHelper = UsuariosConexionHelper
-                val usuariosBBDD = usuariosHelper.buscarUsuario(this, )
+                val nombreUserSeleccionado = binding.txtPassword.text.toString()
 
-                if (binding.txtPassword.text.toString() == ) {
+                val usuariosHelper = UsuariosConexionHelper
+                val usuarioBBDD = usuariosHelper.buscarUsuario(this, nombreUserSeleccionado)
+
+                if (binding.txtPassword.text.toString() == "Admin123" ) {
                     startActivity(Intent(this, PantallaPrincipal::class.java))
                 } else {
                     Toast.makeText(this, "Contraseña incorrecta", Toast.LENGTH_SHORT).show()
