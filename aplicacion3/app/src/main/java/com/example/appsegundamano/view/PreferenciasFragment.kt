@@ -32,6 +32,7 @@ class PreferenciasFragment : PreferenceFragmentCompat(), SharedPreferences.OnSha
             "prefModoOscuro" -> {
                 val modoOscuroActivado = sharedPreferences?.getBoolean(key, false) ?: false
 
+                //Llamamos al metodo de "confirmacion" del cambio de modo
                 showOkCancelAlertDialog(modoOscuroActivado)
 
             }
@@ -39,10 +40,13 @@ class PreferenciasFragment : PreferenceFragmentCompat(), SharedPreferences.OnSha
     }
 
 
+    /**
+     * Muestra una ventana si o no para confirmar si quieres cambiar o no de modo
+     */
     private fun showOkCancelAlertDialog(modoOscuroActivado: Boolean) {
         AlertDialog.Builder(ContextThemeWrapper(requireContext(), R.style.newAppTheme))
-            .setTitle("Confirmation")
-            .setMessage("¿Estas seguro?")
+            .setTitle("Confirmation") //Titulo de la ventana
+            .setMessage("¿Estas seguro?") //Mensaje de la ventana
             .setPositiveButton("SI") { dialog, which ->
                 // Si pulsas el boton si
                 cambiarAModoOscuro(modoOscuroActivado)
@@ -53,6 +57,7 @@ class PreferenciasFragment : PreferenceFragmentCompat(), SharedPreferences.OnSha
             }
             .show()
     }
+
 
     //Este metodo cambia de modo según el parametro pasado (según si está activado el o no el checkbox)
     private fun cambiarAModoOscuro(modoOscuroActivado: Boolean) {

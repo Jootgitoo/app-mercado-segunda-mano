@@ -11,7 +11,8 @@ class UsuariosViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
     val binding = ActivityItemUsuarioBinding.bind(itemView)
 
-    val textView: TextView = binding.txUsuarios
+    //Guardamos lo recogido en el binding
+    val textView: TextView = binding.txUsuario
     val img: ImageView = binding.ivChico
 
 }

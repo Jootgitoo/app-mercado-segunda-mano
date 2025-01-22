@@ -9,7 +9,7 @@
 
 
     <TextView
-        android:id="@+id/txUsuarios"
+        android:id="@+id/txUsuario"
         android:layout_width="190dp"
         android:layout_height="54dp"
         android:layout_marginStart="1dp"

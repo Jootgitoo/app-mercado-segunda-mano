@@ -10,17 +10,19 @@ import com.example.appsegundamano.databinding.ActivityItemUsuarioBinding
 
 class ItemUsuario : AppCompatActivity() {
 
+    //Inicializamos el binding
     private lateinit var binding: ActivityItemUsuarioBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
-
-        //binding
+        //Inflamos el binding
         binding = ActivityItemUsuarioBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.txUsuarios)) { v, insets ->
+        super.onCreate(savedInstanceState)
+        enableEdgeToEdge()
+
+
+        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.txUsuario)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets

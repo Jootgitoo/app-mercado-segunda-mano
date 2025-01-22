@@ -15,10 +15,13 @@ import com.example.appsegundamano.model.UsuariosConexionHelper
 
 class Login : AppCompatActivity() {
 
+    //Inicializamos el binding
     private lateinit var binding: ActivityLoginBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        //Inflamos el binding
         binding = ActivityLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
@@ -27,6 +30,7 @@ class Login : AppCompatActivity() {
         binding.RecyclerView.requestFocus()
         initRecyclerView()
 
+        //Ventana validacion de la contraseña
         binding.btAutentificar.setOnClickListener() {
             showSimpleAlertDialog()
         }
@@ -50,26 +54,36 @@ class Login : AppCompatActivity() {
 
     }
 
+
+    /**
+     * Enseñamos un simple alert dialog si hay un usuario seleccionado y la contraseña es correcta y llevamos a la pantalla ya dentro de la aplicacion
+     */
     private fun showSimpleAlertDialog() {
-        AlertDialog.Builder(ContextThemeWrapper(this, R.style.newAppTheme))
-            .setTitle("Validacion")
-            .setMessage("Contraseña validada")
-            .setPositiveButton("OK") { dialog, which ->
+        // Obtengo la contraseña introducida
+        val nombreUserSeleccionado = binding.txtNombreUsuario?.text.toString()
 
-                val nombreUserSeleccionado = binding.txtPassword.text.toString()
+        val passwordUsuario = binding.txtPassword.text.toString()
 
-                val usuariosHelper = UsuariosConexionHelper
-                val usuarioBBDD = usuariosHelper.buscarUsuario(this, nombreUserSeleccionado)
+        // Inicializo la conexión con la base de datos
+        val usuariosHelper = UsuariosConexionHelper
+        val usuarioBBDD = usuariosHelper.buscarUsuario(this, nombreUserSeleccionado)
 
-                if (binding.txtPassword.text.toString() == "Admin123" ) {
+        // Verifico si el usuario existe y la contraseña es correcta
+        if (usuarioBBDD != null && usuarioBBDD.password == passwordUsuario) {
+            // Contraseña validada correctamente
+            AlertDialog.Builder(ContextThemeWrapper(this, R.style.newAppTheme))
+                .setTitle("Validación") // Título del diálogo
+                .setMessage("Contraseña validada") // Mensaje del diálogo
+                .setPositiveButton("OK") { dialog, which ->
+                    // Navego a la pantalla principal
                     startActivity(Intent(this, PantallaPrincipal::class.java))
-                } else {
-                    Toast.makeText(this, "Contraseña incorrecta", Toast.LENGTH_SHORT).show()
                 }
-            }.setIcon(R.drawable.ic_alert_dialog_validacion)
-            .show()
-
-
+                .setIcon(R.drawable.ic_alert_dialog_validacion)
+                .show()
+        } else {
+            // Contraseña incorrecta o usuario no encontrado
+            Toast.makeText(this, "Contraseña incorrecta o usuario no encontrado", Toast.LENGTH_SHORT).show()
+        }
     }
 
 

@@ -19,20 +19,26 @@ class FragmentTecnologia : Fragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
 
+        //Binding
         binding = FragmentTecnologiaBinding.inflate(inflater, container, false)
         val view = binding.root
 
         //Configuramos el RecyclerView
         binding.rvTecnologia?.requestFocus()
 
+        //Iniciamos el RecyclerView
         initRecyclerView()
 
         return view
     }
 
 
+    /**
+     * Iniciamos el RecyclerView
+     */
     private fun  initRecyclerView(){
 
+        //Lo guardamos para que se muestre en la pantalla
         val manager = LinearLayoutManager( requireActivity() )
         binding.rvTecnologia?.layoutManager = manager
 
@@ -43,6 +49,7 @@ class FragmentTecnologia : Fragment() {
         //Configuro el ReciclerView con los datos de la bbdd
         binding.rvTecnologia?.adapter = AdaptadorProductos(productosBBDD)
 
+        //Decoracion para el rv
         val decoration = DividerItemDecoration(requireActivity(), manager.orientation)
         binding.rvTecnologia?.addItemDecoration(decoration)
     }

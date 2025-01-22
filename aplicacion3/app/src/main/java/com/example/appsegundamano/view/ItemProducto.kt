@@ -10,15 +10,16 @@ import com.example.appsegundamano.databinding.ActivityItemProductoBinding
 
 class ItemProducto : AppCompatActivity() {
 
+    //Inicializamos binding
     private lateinit var binding: ActivityItemProductoBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
-
-        //binding
+        //Creamos el binding
         binding = ActivityItemProductoBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        super.onCreate(savedInstanceState)
+        enableEdgeToEdge()
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())

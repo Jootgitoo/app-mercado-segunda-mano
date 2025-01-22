@@ -24,10 +24,12 @@ class AdaptadorUsuarios(private val usuarios: MutableList<Usuario>) : RecyclerVi
         val usuario = usuarios[position]
         holder.textView.text = usuario.nombre
 
+        //Cogemos la imagen que guarda el usuario
         val imageResourceId = holder.itemView.context.resources.getIdentifier(
             usuario.urlImagen, "drawable", holder.itemView.context.packageName
         )
 
+        //La mostramos
         holder.img.setImageResource(imageResourceId)
 
         //Cuando hago click en algo de la lista...

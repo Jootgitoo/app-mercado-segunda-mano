@@ -27,14 +27,20 @@ class FragmentPopular : Fragment() {
         //Configuramos el RecyclerView
         binding.rvPopular?.requestFocus()
 
+        //Iniciamos el RecyclerView
         initRecyclerView()
 
         return view
 
     }
 
+
+    /**
+     * Creamos el RecyclerView
+     */
     private fun initRecyclerView(){
 
+        //Lo guardamos en rvPopular para que lo pinte en la pantalla
         val manager = LinearLayoutManager(requireActivity())
         binding.rvPopular?.layoutManager = manager
 
@@ -45,6 +51,7 @@ class FragmentPopular : Fragment() {
         //Configuro el recyclerView con los datos de la bbdd
         binding.rvPopular?.adapter = AdaptadorProductos(productosBBDD)
 
+        //Agrego una decoracion
         val decoration = DividerItemDecoration(requireActivity(), manager.orientation)
         binding.rvPopular?.addItemDecoration(decoration)
     }

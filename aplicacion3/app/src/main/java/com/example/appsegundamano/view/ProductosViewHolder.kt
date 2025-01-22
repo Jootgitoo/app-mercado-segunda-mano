@@ -11,6 +11,7 @@ class ProductosViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
 
     val binding = ActivityItemProductoBinding.bind(itemView)
 
+    //Guardamos lo recogido en el binding en variables
     val txtView: TextView = binding.tvNombreProducto
     val txtView2: TextView = binding.tvPrecio
     val img: ImageView = binding.ivChico
