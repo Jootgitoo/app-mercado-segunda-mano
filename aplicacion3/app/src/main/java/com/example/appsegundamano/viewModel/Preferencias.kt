@@ -16,11 +16,12 @@ class Preferencias : AppCompatActivity() {
     private lateinit var binding: ActivityPreferenciasBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
+
+        super.onCreate(savedInstanceState)
+
         //Binding
         binding = ActivityPreferenciasBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
-        super.onCreate(savedInstanceState)
 
         enableEdgeToEdge()
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->

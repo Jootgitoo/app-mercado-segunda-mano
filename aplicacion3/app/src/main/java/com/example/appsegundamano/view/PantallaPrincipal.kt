@@ -43,6 +43,7 @@ class PantallaPrincipal : AppCompatActivity() {
         tabLayout = binding.tabLayout
         viewPager = binding.viewPager
 
+        /*
         //Configuramos un ViewPager2 con los diferentes items
         viewPager.adapter = PagerAdapter(this)
         TabLayoutMediator(tabLayout, viewPager) { tab, index ->
@@ -61,6 +62,34 @@ class PantallaPrincipal : AppCompatActivity() {
 
                 3 -> {
                     "Tecnologia"
+                }
+
+                else -> {
+                    throw Resources.NotFoundException("Seleccione una posicion correcta")
+                }
+            }
+        }.attach()
+        */
+
+
+        //Configuramos un ViewPager2 con los diferentes items
+        viewPager.adapter = PagerAdapter(this)
+        TabLayoutMediator(tabLayout, viewPager) { tab, index ->
+            tab.text = when (index) {
+                0 -> {
+                    getString(R.string.popular)
+                }
+
+                1 -> {
+                    getString(R.string.moda)
+                }
+
+                2 -> {
+                    getString(R.string.deportes)
+                }
+
+                3 -> {
+                    getString(R.string.tecnologia)
                 }
 
                 else -> {
